@@ -1,0 +1,45 @@
+.todo-filter {
+    background-color: var(--clr2bg);
+    padding: 1em;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 1fr;
+}
+
+.todo-filter h2 {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.sort-container {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: end;
+    padding: 1em;
+    align-self: center;
+
+}
+
+.todo-filter form {
+    grid-row: 2;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.radio-sort {
+    display: flex;
+    align-self: center;
+}
+
+.search-inputs {
+    display: flex;
+    align-self: center;
+    gap: 1em;
+    padding-inline: 1em;
+}
