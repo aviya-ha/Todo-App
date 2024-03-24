@@ -2,12 +2,53 @@
     background-color: var(--clr1);
     color: var(--clr1bg);
     padding-block: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: auto auto;
+}
+
+.logo-todo {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+}
+
+.app-nav {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+}
+
+.login-page {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+}
+
+.login-page-inside {
+    display: flex;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+}
+
+.login-form input {
+    padding: 2px;
 }
 
 .app-nav {
     display: flex;
     gap: 15px;
 }
+
+
+
 
 @media(max-width: 720px) {
     .app-header {

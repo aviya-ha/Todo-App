@@ -49,7 +49,7 @@ export function AppHeader() {
     <section className="header-container">
 
       <header style={getStyleByUser()} className="app-header full main-layout">
-        <h1>Todo App</h1>
+        <h1 className="logo-todo">Todo App</h1>
         <nav className="app-nav">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/todos">Todos</NavLink>
@@ -57,7 +57,7 @@ export function AppHeader() {
           <NavLink to="/about">About</NavLink>
         </nav>
         {user ? (
-          <section>
+          <section className="user-data">
             <span to={`/user/${user._id}`}>
               Hello {user.fullname}
             </span>
@@ -65,8 +65,7 @@ export function AppHeader() {
             <progress value={howMuchDone()} max={todos.length}></progress>
           </section>
         ) : (
-          <section>
-            {/* <LoginSignup onSetUser={onSetUser} />  */}
+          <section className="login-page">
             <LoginSignup />
           </section>
         )}
