@@ -7,9 +7,9 @@ import { logout } from '../store/actions/user.actions.js';
 
 
 export function AppHeader() {
-  const user = useSelector(storeState => storeState.loggedInUser);
-  const todos = useSelector(storeState => storeState.todos);
-  const checkedTodosCount = useSelector(storeState => storeState.checkedTodosCount);
+  const user = useSelector(storeState => storeState.userModule.loggedInUser);
+  const todos = useSelector(storeState => storeState.todoModule.todos);
+  const checkedTodosCount = useSelector(storeState => storeState.todoModule.checkedTodosCount);
 
   function howMuchDone() {
     let count = 0

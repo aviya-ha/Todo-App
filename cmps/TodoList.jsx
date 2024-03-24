@@ -2,7 +2,6 @@ const { Link } = ReactRouterDOM
 const { useEffect, useState, useRef } = React
 
 
-import { todoService } from "../service/todo.service.js"
 import { TodoPreview } from "./TodoPreview.jsx"
 
 
