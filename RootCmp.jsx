@@ -8,8 +8,7 @@ import { AboutUs } from './pages/AboutUs.jsx'
 import { AppFooter } from './cmps/AppFooter.jsx'
 import { TodoApp } from './pages/TodoIndex.jsx'
 import { store } from './store/store.js'
-// import { TodoEdit } from './cmps/TodoEdit.jsx'
-// import { BugDetails } from './pages/BugDetails.jsx'
+import { TodoDetails } from './cmps/TodoDetails.jsx'
 // import { UserProfile } from './pages/UserProfile.jsx'
 // import { AdminDashboard } from './pages/AdminDashboard.jsx'
 
@@ -27,6 +26,7 @@ export class App extends React.Component {
                               <Route element={<HomePage />} path="/" />
                               <Route element={<AboutUs />} path="/about" />
                               <Route element={<TodoApp />} path="/todos" />
+                              <Route element={<TodoDetails />} path={'/todo/:id'} />
                               {/* <Route element={<TodoEdit />} path="/todos/edit/:todoId"  /> */}
                           </Routes>
                       </main>
