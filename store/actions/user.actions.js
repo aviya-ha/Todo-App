@@ -44,3 +44,13 @@ export function checkout(diff) {
             throw err
         })
 }
+
+export function updateUser(userToUpdate) {
+    return userService.updateUserPreffs(userToUpdate)
+        .then((updatedUser) => {
+            store.dispatch({
+                type: SET_USER,
+                user: updatedUser,
+            })
+        })
+}

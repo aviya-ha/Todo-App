@@ -53,6 +53,16 @@ export function TodoApp() {
             })
     }
 
+    function onEditTodo(todoToSave) {      
+        saveTodo(todoToSave)
+            .then((savedTodo) => {
+                showSuccessMsg(`Todo added (id: ${savedTodo._id})`)
+            })
+            .catch(err => {
+                showErrorMsg('Cannot add todo')
+            })
+    }
+
     function onRemoveTodo(todoId) {
         removeTodo(todoId)
             .then(() => {
@@ -90,6 +100,7 @@ export function TodoApp() {
                 onCheckBox={onCheckBox}
                 todos={todosForDisplay()}
                 onRemoveTodo={onRemoveTodo}
+                onEditTodo={onEditTodo}
             />
         </main>
     </div>

@@ -41,40 +41,47 @@ function getById(todoId) {
 }
 
 function remove(todoId) {
-    return storageService.remove(STORAGE_KEY, todoId)
+    return storageService.remove(STORAGE_KEY, todoId).then(() => {
+        userService.addActivity('Removed', todoId)
+    })
 }
 
 
 function save(todo) {
     if (todo._id) {
-        console.log('hey');
-        return storageService.put(STORAGE_KEY, todo)
+        return storageService.put(STORAGE_KEY, todo).then(savedTodo => {
+            userService.addActivity('Updated', savedTodo._id)
+            return savedTodo
+        })
     } else {
-        todo.creatAt = Date.now()
-        return storageService.post(STORAGE_KEY, todo)
+        todo.createdAt = Date.now()
+        return storageService.post(STORAGE_KEY, todo).then((savedTodo) => {
+            userService.addActivity('Added', savedTodo._id)
+            return savedTodo
+        })
     }
 }
 
 function getEmptyTodo() {
     return {
         txt: '',
-        isDone: false,  
+        isDone: false,
     }
 }
 
 function getDefaultFilter() {
-    return { txt: '' , isDone: 'all' ,pageIdx: 0}
+    return { txt: '', isDone: 'all', pageIdx: 0 }
 }
 
 
 function _createTodos() {
     let todos = utilService.loadFromStorage(STORAGE_KEY)
     if (!todos || !todos.length) {
-        todos = []      
-            todos.push(_createTodo())
-            todos.push(_createTodo())
-            todos.push(_createTodo())
-            todos.push(_createTodo())
+        todos = []
+        todos.push(_createTodo())
+        todos.push(_createTodo())
+        todos.push(_createTodo())
+        todos.push(_createTodo())
         utilService.saveToStorage(STORAGE_KEY, todos)
     }
 }
